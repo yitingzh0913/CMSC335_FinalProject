@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <title>Show Advice Page</title>
-    <link rel="stylesheet" href="/stylesheet/index.css" />
+    <link type="text/css" rel="stylesheet" href="templates/style.css" />
   </head>
   <body>
-
-    <div>
+    <div class="content">
       <h1>Advice for: <%= num %></h1>
+      <div class="advice-text">
+        <p id="adviceText"><%= adviceTxt %></p>
+      </div>
+      <form id="favoriteForm" method="POST" action="/favoriteQuote">
+        <input type="hidden" name="adviceText" value="<%= adviceTxt %>" />
+        <button type="submit">Favorite quote</button>
+      </form>
     </div>
-
-    <div>
-      <%= adviceTxt %>
-    </div>
-
-    <div style="position: fixed; bottom: 10px; width: 100%; text-align: center">
+    <div class="links">
       <a href="/">Home Page</a>
     </div>
   </body>
