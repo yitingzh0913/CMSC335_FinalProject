@@ -13,13 +13,14 @@
       </div>
       <br />
       <form class="favoriteForm" id="favoriteForm" method="POST" action="/favoriteQuote">
-        <fieldset>
+
           <input type="hidden" name="adviceText" value="<%= adviceTxt %>" />
           <input type="hidden" name="num" value="<%= num %>" />
           <label
             >Rating (1-10): <input type="text" id="rating" name="rating"
           /></label>
           <br />
+          <br>
           <label
             >Comments:
             <br />
@@ -32,7 +33,7 @@
           </label>
           <br />
           <button type="submit">Favorite quote</button>
-        </fieldset>
+
       </form>
     </div>
 
