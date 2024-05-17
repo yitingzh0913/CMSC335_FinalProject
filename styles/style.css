@@ -1,5 +1,7 @@
 body {
-  background-color: #e6e6fa;
+  background: linear-gradient(-45deg, #e6e6fa, #ddb9f6, #8fa5ff, #c2cbed);
+  animation: gradient 20s ease infinite;
+  background-size: 400% 400%;
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
@@ -7,6 +9,20 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 .content {
@@ -59,4 +75,8 @@ a {
 
 a:hover {
   color: #9932cc;
+}
+
+.favoriteForm {
+  background-color: rgba(240, 248, 255, 0.65);
 }
