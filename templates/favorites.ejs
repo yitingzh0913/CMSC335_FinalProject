@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Favorites</title>
+    <link type="text/css" rel="stylesheet" href="templates/sstyle.css" />
+  </head>
+  <body>
+    <div class="content">
+      <h1>Your Favorite Quotes</h1>
+      <div class="favorite-quotes">
+        <% if (favoriteQuotes.length > 0 ) { %>
+        <ul>
+          <% favoriteQuotes.forEach(quote => { %>
+          <li><%= quote.advice %></li>
+          <% }); %>
+        </ul>
+        <form method="POST" action="/clearFavorites">
+          <button type="submit">Clear Favorites</button>
+        </form>
+        <% } else { %>
+        <p>No favorite quotes yet.</p>
+        <% } %>
+      </div>
+      <div class="links">
+        <a href="/">Home Page</a>
+      </div>
+    </div>
+  </body>
+</html>
