@@ -55,3 +55,20 @@ app.get('/', (req, res) => {
 app.get('/favorites', (req, res) => {
   res.render('favorites');
 });
+
+
+// Post
+app.post('/showAdvice', async (req, res) => {
+  const client = new MongoClient(uri, {serverApi: ServerApiVersion.v1 });
+
+  try {
+      await client.connect();
+      let num = req.body.numberInput;
+      res.render('showAdvice', {num});
+  } catch (error) {
+      console.error(error);
+  } finally {
+      await client.close();
+  }
+});
+

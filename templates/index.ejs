@@ -9,16 +9,14 @@
     <script src="/extra.js"></script>
     <div style="text-align: center; margin-top: 20%">
       <h1 style="font-size: 3em; font-weight: bold">Get Some Advice</h1>
+
       <div style="margin-top: 20px">
-        <form onsubmit="getAdvice()">
+        <form action="/showAdvice" method="post">
           <label for="numberInput">Enter a number:</label>
           <input type="number" id="numberInput" name="numberInput" />  <button type="submit">Enter</button> 
         </form>
-        <br>
-        <div id="adviceTxt">
-          xxx
-        </div>
       </div>
+
     </div>
     <div style="position: fixed; bottom: 10px; width: 100%; text-align: center">
       <a href="/favorites">Favorites</a> |
