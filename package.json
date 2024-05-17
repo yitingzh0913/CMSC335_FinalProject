@@ -7,13 +7,13 @@
     "mongodb": "^6.3.0",
     "mongodb-connection-string-url": "^3.0.0"
   },
-  "name": "summercamp",
-  "version": "1.0.0",
+  "name": "final",
+  "version": "1.22.22",
   "main": "serverCode.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "CMSC335 final project",
+  "repository": "https://github.com/yitingzh0913/CMSC335_FinalProject.git"
 }
