@@ -4,10 +4,12 @@
 
 process.stdin.setEncoding("utf8");
 const express = require('express');
+const https = require('https');
 const bodyParser = require('body-parser');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, '/.env') });
+
 
 const uri = "mongodb+srv://testUser:testUser@cmsc335.orqstjp.mongodb.net/";
 const dbCollection = { db: "CMSC335_DB", collection: "finalProject" };
@@ -64,7 +66,11 @@ app.post('/showAdvice', async (req, res) => {
   try {
       await client.connect();
       let num = req.body.numberInput;
-      res.render('showAdvice', {num});
+      let adviceTxt = "";
+      adviceTxt = await getAdvice(num);
+
+      res.render('showAdvice', { num, adviceTxt});
+
   } catch (error) {
       console.error(error);
   } finally {
@@ -72,3 +78,30 @@ app.post('/showAdvice', async (req, res) => {
   }
 });
 
+
+// Functions
+function getAdvice(num) {
+  return new Promise((resolve, reject) => {
+    const url = `https://api.adviceslip.com/advice/${num}`;
+
+    https.get(url, (response) => {
+      let data = '';
+
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+
+      response.on('end', () => {
+        try {
+          const advice = JSON.parse(data).slip.advice;
+          resolve(advice);
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }).on('error', (error) => {
+      reject(error);
+    });
+  });
+
+}
