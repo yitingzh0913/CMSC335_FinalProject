@@ -23,11 +23,7 @@ app.use(express.static('public'));
 // Command Line
 let argArr = process.argv;
 let portNum;
-// Check Length
-if (argArr.length != 3) {
-  console.log("Invalid Number of Arguments");
-  process.exit();
-}
+
 portNum = argArr[2];
 
 console.log(`Web server started running at http://localhost:${portNum}`);
