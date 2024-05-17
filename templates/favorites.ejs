@@ -12,7 +12,10 @@
         <% if (favoriteQuotes.length > 0 ) { %>
         <ul>
           <% favoriteQuotes.forEach(quote => { %>
-          <li><%= quote.advice %></li>
+          <li><strong>Advice Number <%=quote.num %>:</strong> <%= quote.advice %>
+              <br>
+              <strong>Comments: </strong><%= quote.comments %>
+          </li>
           <% }); %>
         </ul>
         <form method="POST" action="/clearFavorites">

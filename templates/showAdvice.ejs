@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="content">
-      <h1 id="inputNum">Advice for: <%= num %></h1>
+      <h1 id="num">Advice for: <%= num %></h1>
       <div class="advice-text">
         <p id="adviceText"><%= adviceTxt %></p>
       </div>
@@ -15,6 +15,7 @@
       <form id="favoriteForm" method="POST" action="/favoriteQuote">
         <fieldset>
           <input type="hidden" name="adviceText" value="<%= adviceTxt %>" />
+          <input type="hidden" name="num" value="<%= num %>" />
           <label>Rating (1-10): <input type="text" id="rating" name="rating"></label>
           <br>
           <label>Comments:

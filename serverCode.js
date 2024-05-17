@@ -88,12 +88,12 @@ app.post("/favoriteQuote", async (req, res) => {
       .db(dbCollection.db)
       .collection(dbCollection.collection);
 
-    const inputNum = req.body.inputNum;
+    const num = req.body.num;
     const adviceText = req.body.adviceText;
     const rating = req.body.rating;
     const comments = req.body.comments;
 
-    await collection.insertOne({ input_number: inputNum, advice: adviceText, rating: rating, comments: comments });
+    await collection.insertOne({ num: num, advice: adviceText, rating: rating, comments: comments });
     res.redirect("/favorites");
   } catch (error) {
     console.error(error);
