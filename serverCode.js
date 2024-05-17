@@ -19,7 +19,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "templates"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+const publicPath = path.resolve(__dirname, "styles");
+
+app.use(express.static(publicPath));
+app.use("/css", express.static(path.join(__dirname, "public/css")));
 
 let argArr = process.argv;
 let portNum = argArr[2];
@@ -77,8 +80,7 @@ app.get("/favorites", async (req, res) => {
   }
 });
 
-
-// POST 
+// POST
 app.post("/favoriteQuote", async (req, res) => {
   const client = new MongoClient(uri);
 
@@ -93,7 +95,12 @@ app.post("/favoriteQuote", async (req, res) => {
     const rating = req.body.rating;
     const comments = req.body.comments;
 
-    await collection.insertOne({ num: num, advice: adviceText, rating: rating, comments: comments });
+    await collection.insertOne({
+      num: num,
+      advice: adviceText,
+      rating: rating,
+      comments: comments,
+    });
     res.redirect("/favorites");
   } catch (error) {
     console.error(error);
@@ -118,7 +125,6 @@ app.post("/clearFavorites", async (req, res) => {
     await client.close();
   }
 });
-
 
 // Functions
 function getAdvice(num) {

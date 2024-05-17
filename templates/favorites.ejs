@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Favorites</title>
-    <link type="text/css" rel="stylesheet" href="templates/sstyle.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="content">
@@ -12,9 +12,10 @@
         <% if (favoriteQuotes.length > 0 ) { %>
         <ul>
           <% favoriteQuotes.forEach(quote => { %>
-          <li><strong>Advice Number <%=quote.num %>:</strong> <%= quote.advice %>
-              <br>
-              <strong>Comments: </strong><%= quote.comments %>
+          <li>
+            <strong>Advice Number <%=quote.num %>:</strong> <%= quote.advice %>
+            <br />
+            <strong>Comments: </strong><%= quote.comments %>
           </li>
           <% }); %>
         </ul>

@@ -1,5 +1,5 @@
 body {
-  background-color: #e6e6fa; /* Light purple background */
+  background-color: #e6e6fa;
   font-family: Arial, sans-serif;
   margin: 0;
   display: flex;
@@ -17,20 +17,20 @@ body {
 h1 {
   font-size: 3em;
   font-weight: bold;
-  color: #4b0082; /* Indigo color for the header text */
+  color: #4b0082;
 }
 
 .advice-text {
   margin-top: 20px;
   font-size: 1.2em;
-  color: #4b0082; /* Indigo color for the advice text */
+  color: #4b0082;
 }
 
 button {
   padding: 10px 20px;
   font-size: 1em;
   color: white;
-  background-color: #4b0082; /* Indigo background */
+  background-color: #4b0082;
   border: none;
   border-radius: 5px;
   margin-top: 20px;
@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: #9932cc; /* Dark orchid background on hover */
+  background-color: #9932cc;
 }
 
 .links {
@@ -51,11 +51,12 @@ button:hover {
 a {
   font-size: 1em;
   font-weight: bold;
-  color: #4b0082; /* Indigo color for links */
+  color: #4b0082;
   text-decoration: none;
   margin: 0 10px;
+  display: inline-block;
 }
 
 a:hover {
-  color: #9932cc; /* Dark orchid color on hover */
+  color: #9932cc;
 }

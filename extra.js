@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function getAdvice() {
   let num = document.getElementById("numberInputst");
