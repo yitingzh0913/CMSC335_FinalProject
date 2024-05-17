@@ -62,10 +62,7 @@ app.post("/showAdvice", async (req, res) => {
 });
 
 app.get("/favorites", async (req, res) => {
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(uri);
   try {
     await client.connect();
     const collection = client
@@ -80,20 +77,23 @@ app.get("/favorites", async (req, res) => {
   }
 });
 
+
+// POST 
 app.post("/favoriteQuote", async (req, res) => {
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(uri);
 
   try {
     await client.connect();
     const collection = client
       .db(dbCollection.db)
       .collection(dbCollection.collection);
-    const adviceText = req.body.adviceText;
 
-    await collection.insertOne({ advice: adviceText });
+    const inputNum = req.body.inputNum;
+    const adviceText = req.body.adviceText;
+    const rating = req.body.rating;
+    const comments = req.body.comments;
+
+    await collection.insertOne({ input_number: inputNum, advice: adviceText, rating: rating, comments: comments });
     res.redirect("/favorites");
   } catch (error) {
     console.error(error);
@@ -103,10 +103,7 @@ app.post("/favoriteQuote", async (req, res) => {
 });
 
 app.post("/clearFavorites", async (req, res) => {
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  const client = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
 
   try {
     await client.connect();
@@ -122,6 +119,8 @@ app.post("/clearFavorites", async (req, res) => {
   }
 });
 
+
+// Functions
 function getAdvice(num) {
   return new Promise((resolve, reject) => {
     const url = `https://api.adviceslip.com/advice/${num}`;

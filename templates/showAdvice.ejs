@@ -7,17 +7,30 @@
   </head>
   <body>
     <div class="content">
-      <h1>Advice for: <%= num %></h1>
+      <h1 id="inputNum">Advice for: <%= num %></h1>
       <div class="advice-text">
         <p id="adviceText"><%= adviceTxt %></p>
       </div>
+      <br>
       <form id="favoriteForm" method="POST" action="/favoriteQuote">
-        <input type="hidden" name="adviceText" value="<%= adviceTxt %>" />
-        <button type="submit">Favorite quote</button>
+        <fieldset>
+          <input type="hidden" name="adviceText" value="<%= adviceTxt %>" />
+          <label>Rating (1-10): <input type="text" id="rating" name="rating"></label>
+          <br>
+          <label>Comments:
+            <br>
+            <textarea rows=5 cols=65 id="comments" name="comments"></textarea></label>
+            <br>
+            <button type="submit">Favorite quote</button>
+        </fieldset>
       </form>
     </div>
+
     <div class="links">
+      <br>
       <a href="/">Home Page</a>
+      |
+      <a href="/favorites">Favorites</a>
     </div>
   </body>
 </html>
