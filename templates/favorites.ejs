@@ -10,15 +10,16 @@
       <h1>Your Favorite Quotes</h1>
       <div class="favorite-quotes">
         <% if (favoriteQuotes.length > 0 ) { %>
-        <ul>
+        
           <% favoriteQuotes.forEach(quote => { %>
-          <li>
+            <br>
             <strong>Advice Number <%=quote.num %>:</strong> <%= quote.advice %>
             <br />
             <strong>Comments: </strong><%= quote.comments %>
-          </li>
+            <br>
+
           <% }); %>
-        </ul>
+        
         <form method="POST" action="/clearFavorites">
           <button type="submit">Clear Favorites</button>
         </form>
